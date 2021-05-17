@@ -23,11 +23,11 @@ const instanceAPIEndpoints = {
 }
 
 class ZestyioRestFetchWrapper {
-    constructor(instanceZUID, authToken) {
+    constructor(instanceZUID, authToken, options={}) {
         this.instanceZUID = instanceZUID;
         this.authToken = authToken;
         this.instancesAPIEndpoints = instanceAPIEndpoints;
-      
+       
           this.accountsAPIEndpoints = {
             instanceGET: "/instances/INSTANCE_ZUID",
             instanceUsersGET: "/instances/INSTANCE_ZUID/users/roles",
@@ -77,8 +77,8 @@ class ZestyioRestFetchWrapper {
             ? options.logResponses
             : false;
       
-          this.instanceZUID = instanceZUID;
-          this.token = token;
+         
+         
           this.instancesAPIURL = this.makeInstanceZUIDURL(
             this.instancesAPIURL,
             instanceZUID
@@ -88,11 +88,53 @@ class ZestyioRestFetchWrapper {
             instanceZUID
           );
     }
+    makeInstanceZUIDURL(url, zuid) {
+      return this.replaceInURL(url, { INSTANCE_ZUID: zuid });
+    }
+
+    buildAPIURL(uri, api = "instances") {
+      switch (api) {
+        case "accounts":
+          return `${this.accountsAPIURL}${uri}`;
+        case "instances":
+          return `${this.instancesAPIURL}${uri}`;
+        case "sites-service":
+          return `${this.sitesServiceURL}${uri}`;
+        case "media":
+          return `${this.mediaAPIURL}${uri}`;
+        default:
+          return "";
+      }
+    }
+
+    replaceInURL(url, replacementObject) {
+      for (const key in replacementObject) {
+        url = url.replace(key, replacementObject[key]);
+      }
+
+      return url;
+    }
 
     async makeRequest(url, method='GET', body='', options={}){
-        options.method = method
-        options.body = body
-        const res = fetch(url,options)
+      let headers = new Headers();
+
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', `Bearer ${this.authToken}`);
+
+      if(method != 'GET') options.body = body
+
+      options.method = method
+      options.headers = headers
+      options.mode = 'no-cors'
+      const res = await fetch(url,options)
+      const data = await res.json();
+      console.log(data);
+      return data
+    }
+
+    async getModels( ){
+      let url = this.instancesAPIURL + instanceAPIEndpoints.models
+      return await this.makeRequest(url)
     }
 
 

@@ -1,7 +1,11 @@
 <html>
     <head>
         <title>Zesty.io Rest API Fetch Wrapper</title>
+        <script src="zestyio-rest-fetch-wrapper.js"></script>
         <script>
+
+            var ZestyAPI = {}
+
             // cookie things
             function setCookie(cname, cvalue, exdays) {
                 var d = new Date();
@@ -41,6 +45,14 @@
                 setCookie(name,value)
                 window.location.reload()
             }
+
+            if(getCookie('APP_SID') != ''){
+                alert('Starting API')
+                ZestyAPI = new ZestyioRestFetchWrapper('8-82f8f3fff6-4zq0d0',getCookie('APP_SID'))
+                console.log(ZestyAPI)
+
+                console.log(ZestyAPI.getModels());
+            }
         </script>
         <style>
             body,html {
@@ -54,7 +66,7 @@
                 <h3>Start testing by setting up an auth cookie!</h3>
                
                 <label>Enter your Zesty.io auth token (APP_SID):</label>
-               <input type="text" value="" onChange="updateToken('APP_SID',this.value)">
+                <input type="text" value="" onChange="updateToken('APP_SID',this.value)">
                 <p> You will find this by logging into accounts.zesty.io, then look at browser cookies under APP_SID.</p>
                 
             </div>
