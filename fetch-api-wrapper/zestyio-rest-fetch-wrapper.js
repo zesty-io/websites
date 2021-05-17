@@ -121,6 +121,7 @@ class ZestyioRestFetchWrapper {
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', `Bearer ${this.authToken}`);
 
+      console.log(headers)
       if(method != 'GET') options.body = body
 
       options.method = method
