@@ -116,7 +116,6 @@ class ZestyioRestFetchWrapper {
     }
 
     async makeRequest(url, method='GET', body='', options={}){
-   
       
       if(method != 'GET') options.body = body
 
@@ -127,17 +126,14 @@ class ZestyioRestFetchWrapper {
       }
       options.credentials = 'same-origin'
 
-
-      fetch(url,options)
-        .then( res => res.json())
-        .then(data => {
-          console.log(data)
-          return data
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-          return error
-        });
+      try {
+        const res = await fetch(url,options)
+        const json = await res.json())
+        return json
+      } catch (err) {
+          console.error('Error:', err);
+          return err
+      }
       
       
     }
