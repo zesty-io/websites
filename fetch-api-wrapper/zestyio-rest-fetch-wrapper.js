@@ -125,7 +125,7 @@ class ZestyioRestFetchWrapper {
         "Content-Type": 'application/json',
         "Authorization": `Bearer ${this.authToken}`
       }
-      options.mode = 'no-cors'
+      options.credentials = 'same-origin'
 
 
       fetch(url,options)
@@ -133,7 +133,10 @@ class ZestyioRestFetchWrapper {
         .then(data => {
           console.log(data)
           return data
-        }).catch(err => console.log(err));
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
       
       
     }
