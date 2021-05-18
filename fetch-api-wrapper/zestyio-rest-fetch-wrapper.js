@@ -148,5 +148,15 @@ class ZestyioRestFetchWrapper {
       return await this.makeRequest(url)
     }
 
+    async createView(fileName,code='',type="snippet"){
+      let payload = JSON.stringify({
+        "code": code,
+        "fileName": fileName,
+        "type": type
+      });
+      let url = this.instancesAPIURL + instanceAPIEndpoints.views
+      return await this.makeRequest(url,'POST',payload)
+    }
+
 
 }
