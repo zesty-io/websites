@@ -136,6 +136,7 @@ class ZestyioRestFetchWrapper {
         })
         .catch((error) => {
           console.error('Error:', error);
+          return error
         });
       
       
