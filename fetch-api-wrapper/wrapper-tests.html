@@ -1,7 +1,8 @@
 <html>
+    <!-- NOTE: THIS FILE ONLY WORKS FROM A ZESTY.IO DOMAIN DUE TO CORS RESTRICTIONS ON THE REST API -->
     <head>
         <title>Zesty.io Rest API Fetch Wrapper</title>
-        <script src="zestyio-rest-fetch-wrapper.js" type="application/javascript"></script>
+        <script type="text/javascript" src="https://zesty-io.github.io/websites/fetch-api-wrapper/zestyio-rest-fetch-wrapper.js?t={{site.date(U)}}"></script>
         <script>
 
             var ZestyAPI = {}
@@ -47,16 +48,28 @@
             }
 
             if(getCookie('APP_SID') != ''){
-                alert('Starting API')
+                console.log('API Instantiated')
                 ZestyAPI = new ZestyioRestFetchWrapper('8-82f8f3fff6-4zq0d0',getCookie('APP_SID'))
                 console.log(ZestyAPI)
-
-                console.log(ZestyAPI.getModels());
             }
+
+            async function testMethod(func, resultsID='results'){
+
+                let results = await func
+                console.log(results)
+                document.querySelector(`#${resultsID}`).innerText = JSON.stringify(results)
+            }
+
+            function clearResults(resultsID='results'){
+                document.querySelector(`#${resultsID}`).innerText = ''
+            }
+
+
         </script>
         <style>
             body,html {
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
+                background: black;
             }
         </style>
     </head>
@@ -70,12 +83,22 @@
                 <p> You will find this by logging into accounts.zesty.io, then look at browser cookies under APP_SID.</p>
                 
             </div>
-            <div style="flex: 1; padding: 20px;">
+            <div style="flex: 1; padding: 20px; max-width: 100px">
                 <img src="https://brand.zesty.io/zesty-io-logo.png" width="100%">
             </div>
 
         </div>
+        
+        <button onclick="testMethod(ZestyAPI.getInstances())">Get Instance</button>
+        <button onclick="testMethod(ZestyAPI.getModels())">Get Models</button>
+        <button onclick="testMethod(ZestyAPI.getViews())">Get Views</button>
+        <button onclick="testMethod(ZestyAPI.createView('hello-world','mycode'))">Make View</button>
+        <button onclick="testMethod(ZestyAPI.updateView('11-c6a8b7f8ed-wn3gn1','foo bar'))">Update View</button>
+        
+        <button onclick="clearResults()">Clear Results</button>
 
+        <div id="results" style="background:#eee; padding: 20px; margin: 10px; white-space: pre; overflow: scroll; font-size: 10px; font-family: mono">
+        </div>
 
 
     </body>
