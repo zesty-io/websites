@@ -163,7 +163,7 @@ class ZestyioRestFetchWrapper {
         "code": code
       });
       let url = this.instancesAPIURL + instanceAPIEndpoints.views + '/' + viewZUID
-      return await this.makeRequest(url,'POST',payload)
+      return await this.makeRequest(url,'PUT',payload)
     }
 
 }
