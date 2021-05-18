@@ -143,5 +143,10 @@ class ZestyioRestFetchWrapper {
       return await this.makeRequest(url)
     }
 
+    async getViews( ){
+      let url = this.instancesAPIURL + instanceAPIEndpoints.views
+      return await this.makeRequest(url)
+    }
+
 
 }
