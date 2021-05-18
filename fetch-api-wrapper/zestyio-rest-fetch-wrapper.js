@@ -128,11 +128,11 @@ class ZestyioRestFetchWrapper {
 
       try {
         const res = await fetch(url,options)
-        const json = await res.json())
+        const json = await res.json()
         return json
       } catch (err) {
-          console.error('Error:', err);
-          return err
+        console.error('Error:', err);
+        return err
       }
       
       
