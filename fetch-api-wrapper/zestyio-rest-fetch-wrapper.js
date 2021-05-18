@@ -116,19 +116,23 @@ class ZestyioRestFetchWrapper {
     }
 
     async makeRequest(url, method='GET', body='', options={}){
-      let headers = new Headers();
-
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', `Bearer ${this.authToken}`);
-
-      console.log(headers)
+   
+      
       if(method != 'GET') options.body = body
 
       options.method = method
-      options.headers = headers
+      options.headers = {
+        "Content-Type": 'application/json',
+        "Authorization": `Bearer ${this.authToken}`
+      }
       options.mode = 'no-cors'
-      const res = await fetch(url,options)
-      const data = await res.json();
+
+      console.log(options)
+      fetch(url,options).then( res => res.json()).then(
+        data => {
+          console.log(data)
+        }
+      );
       console.log(data);
       return data
     }
