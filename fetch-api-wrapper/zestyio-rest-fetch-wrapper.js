@@ -32,7 +32,7 @@ class ZestyioRestFetchWrapper {
             instanceGET: "/instances/INSTANCE_ZUID",
             instanceUsersGET: "/instances/INSTANCE_ZUID/users/roles",
             userGET: "/users/USER_ZUID",
-            instanceGETAll: "/instances",
+            instances: "/instances",
           };
       
           this.sitesServiceEndpoints = {
@@ -137,7 +137,11 @@ class ZestyioRestFetchWrapper {
       
       
     }
-
+     async getInstances( ){
+      let url = this.accountsAPIURL + accountsAPIEndpoints.instances
+      return await this.makeRequest(url)
+    }
+   
     async getModels( ){
       let url = this.instancesAPIURL + instanceAPIEndpoints.models
       return await this.makeRequest(url)
