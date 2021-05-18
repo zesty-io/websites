@@ -9,7 +9,7 @@ class ZestyioRestFetchWrapper {
     constructor(instanceZUID, authToken, options={}) {
         this.instanceZUID = instanceZUID;
         this.authToken = authToken;
-        this.instancesAPIEndpoints = instanceAPIEndpoints;
+        
        
           this.accountsAPIEndpoints = {
             instanceGET: "/instances/INSTANCE_ZUID",
