@@ -127,14 +127,15 @@ class ZestyioRestFetchWrapper {
       }
       options.mode = 'no-cors'
 
-      console.log(options)
-      fetch(url,options).then( res => res.json()).then(
-        data => {
+
+      fetch(url,options)
+        .then( res => res.json())
+        .then(data => {
           console.log(data)
-        }
-      );
-      console.log(data);
-      return data
+          return data
+        }).catch(err => console.log(err));
+      
+      
     }
 
     async getModels( ){
