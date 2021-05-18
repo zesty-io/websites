@@ -4,23 +4,6 @@
  * 
  * More info at https://github.com/zesty-io/websites/fetch-api-wrapper/
  */
-const instanceAPIEndpoints = {
-    models: "/content/models",
-    fields: "/content/models/MODEL_ZUID/fields",
-    itemsPublishing: "/content/models/MODEL_ZUID/items/ITEM_ZUID/publishings",
-    itemsVersions: "/content/models/MODEL_ZUID/items/ITEM_ZUID/versions",
-    items: "/content/models/MODEL_ZUID/items",
-    views: "/web/views", // ?action=publish&purge_cache=true
-    settings: "/env/settings",
-    stylesheets: "/web/stylesheets", // ?action=publish&purge_cache=true
-    stylesheetsVersions: "/web/stylesheets/STYLESHEET_ZUID/versions",
-    scriptsVersions: "/web/scripts/SCRIPT_ZUID/versions/VERSION_NUMBER",
-    scripts: "/web/scripts", // publish by adding: ?action=publish&purge_cache=true",
-    headers: "/web/headers",
-    nav: "/env/nav",
-    headtags: "/web/headtags",
-    audits: "/env/audits"
-}
 
 class ZestyioRestFetchWrapper {
     constructor(instanceZUID, authToken, options={}) {
@@ -41,6 +24,24 @@ class ZestyioRestFetchWrapper {
               "/content/items/ITEM_ZUID/publish-schedule/PUBLISHING_ZUID",
             itemsDELETE: "/content/sets/MODEL_ZUID/items/ITEM_ZUID"
           };
+
+          this.instanceAPIEndpoints = {
+              models: "/content/models",
+              fields: "/content/models/MODEL_ZUID/fields",
+              itemsPublishing: "/content/models/MODEL_ZUID/items/ITEM_ZUID/publishings",
+              itemsVersions: "/content/models/MODEL_ZUID/items/ITEM_ZUID/versions",
+              items: "/content/models/MODEL_ZUID/items",
+              views: "/web/views", // ?action=publish&purge_cache=true
+              settings: "/env/settings",
+              stylesheets: "/web/stylesheets", // ?action=publish&purge_cache=true
+              stylesheetsVersions: "/web/stylesheets/STYLESHEET_ZUID/versions",
+              scriptsVersions: "/web/scripts/SCRIPT_ZUID/versions/VERSION_NUMBER",
+              scripts: "/web/scripts", // publish by adding: ?action=publish&purge_cache=true",
+              headers: "/web/headers",
+              nav: "/env/nav",
+              headtags: "/web/headtags",
+              audits: "/env/audits"
+          }
       
           this.mediaAPIEndpoints = {
             binsGETAll: "/media-manager-service/site/SITE_ID/bins",
@@ -138,17 +139,17 @@ class ZestyioRestFetchWrapper {
       
     }
      async getInstances( ){
-      let url = this.accountsAPIURL + accountsAPIEndpoints.instances
+      let url = this.accountsAPIURL + this.accountsAPIEndpoints.instances
       return await this.makeRequest(url)
     }
    
     async getModels( ){
-      let url = this.instancesAPIURL + instanceAPIEndpoints.models
+      let url = this.instancesAPIURL + this.instanceAPIEndpoints.models
       return await this.makeRequest(url)
     }
 
     async getViews( ){
-      let url = this.instancesAPIURL + instanceAPIEndpoints.views
+      let url = this.instancesAPIURL + this.instanceAPIEndpoints.views
       return await this.makeRequest(url)
     }
 
@@ -158,7 +159,7 @@ class ZestyioRestFetchWrapper {
         "fileName": fileName,
         "type": type
       });
-      let url = this.instancesAPIURL + instanceAPIEndpoints.views
+      let url = this.instancesAPIURL + this.instanceAPIEndpoints.views
       return await this.makeRequest(url,'POST',payload)
     }
 
@@ -166,7 +167,7 @@ class ZestyioRestFetchWrapper {
       let payload = JSON.stringify({
         "code": code
       });
-      let url = this.instancesAPIURL + instanceAPIEndpoints.views + '/' + viewZUID
+      let url = this.instancesAPIURL + this.instanceAPIEndpoints.views + '/' + viewZUID
       return await this.makeRequest(url,'PUT',payload)
     }
 
