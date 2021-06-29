@@ -93,7 +93,7 @@ class ZestyioRestFetchWrapper {
       return this.replaceInURL(url, { INSTANCE_ZUID: zuid });
     }
 
-    updateInstanceZUID(zuid) {
+    setInstanceZUID(zuid) {
       return this.instanceZUID = zuid;
     }
 
