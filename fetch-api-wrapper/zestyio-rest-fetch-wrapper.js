@@ -58,7 +58,14 @@ class ZestyioRestFetchWrapper {
             groupsPATCH: "/media-manager-service/group/GROUP_ID",
             groupsDELETE: "/media-manager-service/group/GROUP_ID"
           };
+
+           this.authAPIEndpoints = {
+              verify: '/verify'
+           }
       
+          this.authAPIURL = options.hasOwnProperty("authAPIURL") 
+            ? options.instancesAPIURL 
+            : "https://auth.api.zesty.io";
           this.instancesAPIURL = options.hasOwnProperty("instancesAPIURL")
             ? options.instancesAPIURL
             : "https://INSTANCE_ZUID.api.zesty.io/v1";
@@ -141,6 +148,11 @@ class ZestyioRestFetchWrapper {
       }
       
       
+    }
+
+    async verify(){
+      let url = this.authAPIURL + this.authAPIEndpoints.verify
+      return await this.makeRequest(url)
     }
      async getInstances( ){
       let url = this.accountsAPIURL + this.accountsAPIEndpoints.instances
