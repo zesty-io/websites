@@ -99,7 +99,9 @@ class ZestyioRestFetchWrapper {
     makeInstanceZUIDURL(url, zuid) {
       return this.replaceInURL(url, { INSTANCE_ZUID: zuid });
     }
-
+    getInstanceAPIURL(){
+      return "https://"+this.instanceZUID+".api.zesty.io/v1";
+    }
     setInstanceZUID(zuid) {
       return this.instanceZUID = zuid;
     }
@@ -160,17 +162,17 @@ class ZestyioRestFetchWrapper {
     }
    
     async getModels( ){
-      let url = this.instancesAPIURL + this.instanceAPIEndpoints.models
+      let url = this.getInstanceAPIURL() + this.instanceAPIEndpoints.models
       return await this.makeRequest(url)
     }
 
     async getViews( ){
-      let url = this.instancesAPIURL + this.instanceAPIEndpoints.views
+      let url = this.getInstanceAPIURL() + this.instanceAPIEndpoints.views
       return await this.makeRequest(url)
     }
     
     async getView(zuid){
-      let url = this.instancesAPIURL + this.instanceAPIEndpoints.views + '/' + zuid
+      let url = this.getInstanceAPIURL() + this.instanceAPIEndpoints.views + '/' + zuid
       return await this.makeRequest(url)
     }
 
@@ -180,7 +182,7 @@ class ZestyioRestFetchWrapper {
         "fileName": fileName,
         "type": type
       });
-      let url = this.instancesAPIURL + this.instanceAPIEndpoints.views
+      let url = this.getInstanceAPIURL() + this.instanceAPIEndpoints.views
       return await this.makeRequest(url,'POST',payload)
     }
 
@@ -188,7 +190,7 @@ class ZestyioRestFetchWrapper {
       let payload = JSON.stringify({
         "code": code
       });
-      let url = this.instancesAPIURL + this.instanceAPIEndpoints.views + '/' + viewZUID
+      let url = this.getInstanceAPIURL() + this.instanceAPIEndpoints.views + '/' + viewZUID
       return await this.makeRequest(url,'PUT',payload)
     }
 
