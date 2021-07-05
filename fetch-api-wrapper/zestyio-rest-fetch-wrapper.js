@@ -168,8 +168,13 @@ class ZestyioRestFetchWrapper {
       let url = this.instancesAPIURL + this.instanceAPIEndpoints.views
       return await this.makeRequest(url)
     }
+    
+    async getView(zuid){
+      let url = this.instancesAPIURL + this.instanceAPIEndpoints.views + '/' + zuid
+      return await this.makeRequest(url)
+    }
 
-    async createView(fileName,code='',type="snippet"){
+    async createView(fileName,code='',type="ajax-json"){
       let payload = JSON.stringify({
         "code": code,
         "fileName": fileName,
