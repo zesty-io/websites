@@ -68,7 +68,7 @@ class ZestyioRestFetchWrapper {
             : "https://auth.api.zesty.io";
           this.instancesAPIURL = options.hasOwnProperty("instancesAPIURL")
             ? options.instancesAPIURL
-            : "https://INSTANCE_ZUID.api.zesty.io/v1";
+            : "https://"+this.instanceZUID+".api.zesty.io/v1";
           this.accountsAPIURL = options.hasOwnProperty("accountsAPIURL")
             ? options.accountsAPIURL
             : "https://accounts.api.zesty.io/v1";
@@ -77,7 +77,7 @@ class ZestyioRestFetchWrapper {
             : "https://svc.zesty.io";
           this.sitesServiceURL = options.hasOwnProperty("sitesServiceURL")
             ? options.sitesServiceURL
-            : "https://svc.zesty.io/sites-service/INSTANCE_ZUID";
+            : "https://svc.zesty.io/sites-service/"+ this.instanceZUID;
           this.logErrors = options.hasOwnProperty("logErrors")
             ? options.logErrors
             : false;
