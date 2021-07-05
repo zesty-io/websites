@@ -87,7 +87,7 @@ class ZestyioRestFetchWrapper {
       
          
          
-          this.instancesAPIURL = this.makeInstanceZUIDURL(
+          this.this.instanceZUID = this.makeInstanceZUIDURL(
             this.instancesAPIURL,
             instanceZUID
           );
