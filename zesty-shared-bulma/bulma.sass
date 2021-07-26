@@ -9,9 +9,9 @@ $zesty-dark-blue: 		#1b202c;
 $zesty-tab-blue:		#697A91;
 $zesty-orange: 			#F17829;
 $zesty-red: 			rgb(230,74,23);
-//$zesty-green: 			#75BF43;
+$zesty-green: 			#75BF43;
 $dev-theme: 			#77b250; //Developer & Parsley docs green 
-$zesty-green: 			desaturate(#75BF43,10%);
+$zesty-green: 			desaturate($zesty-green,10%);
 $zesty-blue: 			#497edf;  
 $zesty-teal:			#6a9293;
 $zesty-white:			#eff5ff; 
@@ -36,6 +36,9 @@ $zesty-white-blue:		#f2f4fb;
 $zesty-blue-white:	$zesty-white-blue;
 $zesty-pink: #EA398C;
 
+@import "sass/utilities/_all"
+
+
 $dark-blue: #1B1F2C;
 $darker-blue: darken($dark-blue, 5%);
 $parsley-green: #96C45B;
@@ -49,6 +52,8 @@ $green: $zesty-green;
 $red: $zesty-red;
 $orange: $zesty-orange;
 $grey: $zesty-grey;
+
+    
 
 // Update Bulma's global variables
 $family-sans-serif: "Mulish", sans-serif;
@@ -72,7 +77,7 @@ $input-shadow: none;
 $render-mode: geometricPrecision; 
 
 /*! bulma.io v0.9.3 | MIT License | github.com/jgthms/bulma */
-@import "sass/utilities/_all"
+
 @import "sass/base/_all"
 @import "sass/elements/_all"
 @import "sass/form/_all"
