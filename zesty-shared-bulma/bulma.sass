@@ -45,9 +45,15 @@ $white: #E5EAF9;
 $pure-white: #ffffff;
 $light-blue: #D9E2F4;
 
+$blue: $zesty-blue;
+$green: $zesty-green;
+$red: $zesty-red;
+$orange: $zesty-orange;
+
+
 // Update Bulma's global variables
 $family-sans-serif: "Mulish", sans-serif;
-$grey-dark: $nav-border-color;
+$grey-dark: darken($zesty-grey,20%);
 $grey-light: $zesty-light-gray;
 $primary: $zesty-orange;
 $brand: $zesty-blue;
@@ -55,13 +61,16 @@ $link: $zesty-blue;
 $danger: $zesty-red;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
+$success: $zesty-green
+$dark: $zesty-tab-blue
+$text: $grey-dark
 
 // Update some of Bulma's component variables
 $body-background-color: $pure-white;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
-
+$render-mode: geometricPrecision; 
 
 /*! bulma.io v0.9.3 | MIT License | github.com/jgthms/bulma */
 @import "sass/base/_all"

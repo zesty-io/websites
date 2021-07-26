@@ -353,7 +353,7 @@ pre {
 }
 
 body {
-  color: #4a4a4a;
+  color: #303642;
   font-size: 1em;
   font-weight: 400;
   line-height: 1.5;
@@ -463,7 +463,7 @@ table th {
   background-color: white;
   border-radius: 6px;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
-  color: #4a4a4a;
+  color: #303642;
   display: block;
   padding: 1.25rem;
 }
@@ -537,7 +537,7 @@ a.box:active {
 .button.is-text {
   background-color: transparent;
   border-color: transparent;
-  color: #4a4a4a;
+  color: #303642;
   text-decoration: underline;
 }
 
@@ -2428,15 +2428,15 @@ div.icon-text {
 }
 
 .progress::-webkit-progress-value {
-  background-color: #4a4a4a;
+  background-color: #303642;
 }
 
 .progress::-moz-progress-bar {
-  background-color: #4a4a4a;
+  background-color: #303642;
 }
 
 .progress::-ms-fill {
-  background-color: #4a4a4a;
+  background-color: #303642;
   border: none;
 }
 
@@ -2606,7 +2606,7 @@ div.icon-text {
   animation-name: moveIndeterminate;
   animation-timing-function: linear;
   background-color: #ededed;
-  background-image: linear-gradient(to right, #4a4a4a 30%, #ededed 30%);
+  background-image: linear-gradient(to right, #303642 30%, #ededed 30%);
   background-position: top left;
   background-repeat: no-repeat;
   background-size: 150% 150%;
@@ -2918,7 +2918,7 @@ div.icon-text {
   align-items: center;
   background-color: whitesmoke;
   border-radius: 4px;
-  color: #4a4a4a;
+  color: #303642;
   display: inline-flex;
   font-size: 0.75rem;
   height: 2em;
@@ -3157,7 +3157,7 @@ a.tag:hover {
 }
 
 .subtitle {
-  color: #4a4a4a;
+  color: #303642;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.25;
@@ -4145,7 +4145,7 @@ fieldset[disabled] .select select:hover {
 
 .file-cta {
   background-color: whitesmoke;
-  color: #4a4a4a;
+  color: #303642;
 }
 
 .file-name {
@@ -4444,7 +4444,7 @@ fieldset[disabled] .select select:hover {
 .control.has-icons-left .input:focus ~ .icon,
 .control.has-icons-left .select:focus ~ .icon, .control.has-icons-right .input:focus ~ .icon,
 .control.has-icons-right .select:focus ~ .icon {
-  color: #4a4a4a;
+  color: #303642;
 }
 
 .control.has-icons-left .input.is-small ~ .icon,
@@ -4608,7 +4608,7 @@ fieldset[disabled] .select select:hover {
   background-color: white;
   border-radius: 0.25rem;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
-  color: #4a4a4a;
+  color: #303642;
   max-width: 100%;
   position: relative;
 }
@@ -4747,7 +4747,7 @@ fieldset[disabled] .select select:hover {
 }
 
 .dropdown-item {
-  color: #4a4a4a;
+  color: #303642;
   display: block;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -4985,7 +4985,7 @@ button.dropdown-item.is-active {
 
 .menu-list a {
   border-radius: 2px;
-  color: #4a4a4a;
+  color: #303642;
   display: block;
   padding: 0.5em 0.75em;
 }
@@ -5186,7 +5186,7 @@ button.dropdown-item.is-active {
 
 .message-header {
   align-items: center;
-  background-color: #4a4a4a;
+  background-color: #303642;
   border-radius: 4px 4px 0 0;
   color: #fff;
   display: flex;
@@ -5214,7 +5214,7 @@ button.dropdown-item.is-active {
   border-radius: 4px;
   border-style: solid;
   border-width: 0 0 0 4px;
-  color: #4a4a4a;
+  color: #303642;
   padding: 1.25em 1.5em;
 }
 
@@ -6011,7 +6011,7 @@ body.has-navbar-fixed-bottom {
 }
 
 .navbar-burger {
-  color: #4a4a4a;
+  color: #303642;
   cursor: pointer;
   display: block;
   height: 3.25rem;
@@ -6067,7 +6067,7 @@ body.has-navbar-fixed-bottom {
 
 .navbar-item,
 .navbar-link {
-  color: #4a4a4a;
+  color: #303642;
   display: block;
   line-height: 1.5;
   padding: 0.5rem 0.75rem;
@@ -6748,7 +6748,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 }
 
 .panel-list a {
-  color: #4a4a4a;
+  color: #303642;
 }
 
 .panel-list a:hover {
@@ -6834,7 +6834,7 @@ label.panel-block:hover {
   border-bottom-color: #dbdbdb;
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  color: #4a4a4a;
+  color: #303642;
   display: flex;
   justify-content: center;
   margin-bottom: -1px;
