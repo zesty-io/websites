@@ -3,7 +3,7 @@
 * Brand override styles are written into the `bulma.sass` file
 * We build the project and deploy from github pages
 
-## How to Build
+## How to Build, Deploy, and use in Zesty.io projects
 
 1. `npm install`
 2. `npm run build-saas` to build
