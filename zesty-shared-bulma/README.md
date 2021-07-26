@@ -7,9 +7,10 @@
 
 1. `npm install`
 2. `npm run build-saas` to build
-3. `git commit -a` write your commit
-4. `git push origin main` send files up
-5. link
+3. `npm run deploy` to get minified css files
+4. `git add -A && git commit -a` write your commit
+5. `git push origin main` send files up
+6. This auto updates our website, follow guide on https://zesty-io.github.io/websites/ to use in new projects
 
 # [Bulma](https://bulma.io)
 
