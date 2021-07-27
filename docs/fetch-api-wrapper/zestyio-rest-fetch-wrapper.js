@@ -153,6 +153,10 @@ class ZestyioRestFetchWrapper {
       let url = this.authAPIURL + this.authAPIEndpoints.verify
       return await this.makeRequest(url)
     }
+    async getUser(userZUID){
+      let url = this.accountsAPIURL + this.replaceInURL(this.accountsAPIEndpoints.userGET, {'USER_ZUID': userZUID})
+      return await this.makeRequest(url)
+    }
      async getInstances( ){
       let url = this.accountsAPIURL + this.accountsAPIEndpoints.instances
       return await this.makeRequest(url)
