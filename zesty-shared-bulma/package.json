@@ -74,7 +74,8 @@
     "rtl-autoprefix": "postcss --use autoprefixer --map false --output ../docs/css/bulma-rtl.css ../docs/css/bulma-rtl.css",
     "rtl-cleancss": "cleancss -o ../docs/css/bulma-rtl.min.css ../docs/css/bulma-rtl.css",
     "rtl-sass": "node-sass --output-style expanded --source-map true bulma-rtl.sass ../docs/css/bulma-rtl.css",
-    "start": "npm run build-sass -- --watch"
+    "start": "npm run build-sass -- --watch",
+    "zesty-launch": "npm run build && npm run deploy && git commit -am'design updates' && git push"
   },
   "style": "bulma/css/bulma.min.css",
   "unpkg": "css/bulma.css",
