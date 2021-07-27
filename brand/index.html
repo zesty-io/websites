@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Zesty.io Cloud Platform Brand Assests and Style Guide</title>
+        <script  type="text/javascript">    
+            // force redirect to https
+            if(window.location.protocol != 'https:') {
+                location.href =   location.href.replace("http://", "https://");
+            }    
+        </script>
+        <meta  http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta  name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="canonical" href="https://brand.zesty.io/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary">
+        <meta property="og:title" content="Zesty.io Brand and Style Guide" />
+        <meta name="twitter:title" content="Zesty.io Brand and Style Guide">
+        <meta name="description" content="A style guide and refences for using the Zesty.io brand in any web presentation." />
+        <meta property="og:description" content="A style guide and refences for using the Zesty.io brand in any web presentation." />
+        <meta property="twitter:description" content="A style guide and refences for using the Zesty.io brand in any web presentation." />
+        <meta property="og:url" content="https://brand.zesty.io/" />
+        <meta property="og:site_name" content="Zesty.io Brand and Style Guide" />
+        <link type="text/css" href="https://zesty-io.github.io/websites/css/bulma.min.css" rel="stylesheet" media="screen" />
+        <link rel="icon" href="https://brand-assets.zesty.io/zesty-io-app-icon-alternate.png" />
+    </head>
+    <bodyitemscope="" itemtype="https://schema.org/WebPage">
+    
+        <nav class="navbar is-fixed-top is-info">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="https://www.zesty.io">
+                        <img class="zesty-white-logo" src="https://brand-assets.zesty.io/zesty-io-logo-light.svg" alt="Logo">
+                        <img class="zesty-orange-logo" src="https://brand-assets.zesty.io/zesty-io-logo.svg" alt="Logo">
+                    </a>
+                    <span class="navbar-burger burger" data-target="navbarMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div id="navbarMenu" class="navbar-menu">
+                    <div class="navbar-start">
+        
+                        <a class="navbar-item has-text-white" href="/" style="border-left: 1px rgba(255,255,255,0.2) solid; padding-left: 15px; ">
+                            Zesty.io Brand
+                        </a>
+        
+                        <span class="navbar-item is-zesty-user is-hidden">
+                            <a class="button  is-white is-outlined open-zesty-button" href="https://accounts.zesty.io">
+                                
+                                <small title="Open Accounts"  class="has-text-normal">Open Accounts</small>
+                            </a>
+                        </span>
+                        
+                    </div>
+        
+                    <div class="navbar-end">
+                        
+        
+                        <span class="navbar-item not-zesty-user">
+                                <a class="button is-white is-outlined" href="https://accounts.zesty.io">
+                                    <span class="icon">
+                                        <i class="fa fa-sign-in"></i>
+                                    </span>
+                                    <small title="Login to Zesty.io" class="has-text-normal">Sign In</small>
+                                </a>
+                            </span>
+                            <span class="navbar-item not-zesty-user">
+                                <a class="button is-primary " data-area="header" href="https://accounts.zesty.io/signup">
+                                    <span class="icon">
+                                        <i class="fa fa-user-plus"></i>
+                                    </span>
+                                    <span title="Create Account">Create Account</span>
+                                </a>
+                            </span>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+     
+        
+        <section class="hero is-dark">
+            <div class="hero-body has-text-centered">
+                <div class="container">
+                    <h1 class="title has-white-text">
+                        <span>Zesty.io Brand Assets &amp; Style Guide</span>
+                    </h1>
+
+                    <h2 class="subtitle has-light-text">
+                        <p>
+                            When using the Zesty.io logo in any web presentation, from applications to blog articles, we expect you to hot link to one of links provided below. This way if our logo ever changes, it will update everywhere.
+                        </p>
+                    </h2>
+                </div>
+            </div>
+        </section>
+        <br>
+        <div class="container">
+            <div class="columns is-multiline" id="insert">
+            </div>
+        </div>
+        <style>
+        .responsive {
+            width: 100%;
+            height: auto;
+            }
+        </style>
+      
+        <script  type="text/javascript">
+            
+            async function getAssets() {
+                let endpoint = `https://command.zesty.io/-/instant/6-f2b5aae7e8-6f208n.json`
+                return await fetch(endpoint).then(res => res.json());
+            }
+
+            let columns = document.querySelector(`#insert`)
+            
+            getAssets().then(res => {
+                res.data.map(asset => {
+                    //console.log(asset)
+                    columns.innerHTML += buildCard(asset.content)
+                })
+            }); 
+            
+
+            function buildCard(asset){
+                let backgroundSize = (asset.column_width == "is_two_thirds") ? "90% auto" : "auto 90%"
+                return `
+                <div class="column ${asset.column_width.replace(/_/g,'-')}">
+                    <div class="card">
+                        <header class="card-header has-background-white">
+                            <p class="card-header-title has-text-dark">
+                                ${asset.name}
+                            </p>
+                        
+                        </header>
+                        <div class="card-content ${asset.mode.replace(/_/g,'-')}" style="height: 250px; background-image: url(${asset.asset_link}); background-repeat: no-repeat; background-size: ${backgroundSize} ; background-position: center center">
+                            <a href="${asset.asset_link}" target="_blank">
+                      
+                            </a>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="${asset.asset_link}"  target="_blank" class="card-footer-item"> PNG</a>
+                            <a href="${asset.asset_link_svg}" target="_blank" class="card-footer-item"> SVG</a>                            
+                        </footer>
+                        <footer class="card-footer">
+                            <div style="padding: 20px">
+                                <p class="has-text-gray">
+                                 ${asset.description}
+                                </p>
+                            </div>
+                        
+                        </footer>
+                    </div>
+                </div>`
+            }
+        
+        </script>
+
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    </body>
+</html>
